@@ -1,0 +1,31 @@
+
+=== SENSOR LOG ===
+Time      : 5000 ms
+Temp      : nan C | Humidity: nan%
+Light     : 24% (Dark)
+Distance  : 0.00 cm
+==================
+=== SENSOR LOG ===
+Time      : 10000 ms
+Temp      : nan C | Humidity: nan%
+Light     : 24% (Dark)
+Distance  : 0.00 cm
+==================
+=== SENSOR LOG ===
+Time      : 15000 ms
+Temp      : nan C | Humidity: nan%
+Light     : 24% (Dark)
+Distance  : 0.00 cm
+==================
+=== SENSOR LOG ===
+Time      : 20000 ms
+Temp      : nan C | Humidity: nan%
+Light     : 24% (Dark)
+Distance  : 0.00 cm
+==================
+=== SENSOR LOG ===
+Time      : 25000 ms
+Temp      : nan C | Humidity: nan%
+Light     : 24% (Dark)
+Distance  : 0.00 cm
+==================
