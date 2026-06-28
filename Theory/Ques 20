@@ -1,0 +1,7 @@
+The setup() function runs only once when the Arduino is powered on or reset. It is used to initialize pins, sensors, Serial communication, and other settings.
+
+The loop() function runs continuously after setup() finishes. It contains the main program logic and keeps executing repeatedly.
+
+If a long delay() is used inside loop(), the Arduino cannot perform other tasks during that time. As a result, sensor readings become slow, button presses may be missed, and the system becomes less responsive.
+
+The non-blocking alternative is to use the millis() function, which allows the Arduino to perform multiple tasks simultaneously without stopping the execution of the program.
