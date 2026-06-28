@@ -1,0 +1,34 @@
+Q9. Explain the difference between git clone, git fetch, and git pull. When would you use each?
+
+Git provides different commands to interact with remote repositories. The commands git clone, git fetch, and git pull are used for different purposes.
+
+Git Clone
+
+Git clone is used to create a complete copy of a remote repository on a local computer. It downloads all the project files, branches, and commit history. This command is used only once when working with a repository for the first time.
+
+Example:
+git clone https://github.com/username/repository.git
+
+Git Fetch
+
+Git fetch downloads the latest changes from the remote repository without merging them into the current branch. It allows developers to review changes before applying them.
+
+Example:
+git fetch origin
+
+Git Pull
+
+Git pull downloads the latest changes from the remote repository and automatically merges them into the current branch. It is commonly used to update the local repository with the latest changes.
+
+Example:
+git pull origin main
+
+Difference Between the Commands
+
+- Git Clone: Creates a complete local copy of a remote repository. Used when downloading a repository for the first time.
+- Git Fetch: Downloads new changes without merging them. Used when you want to review updates before applying them.
+- Git Pull: Downloads and merges the latest changes into the current branch. Used when you want to update your local repository immediately.
+
+Conclusion
+
+Git clone is used to copy a repository for the first time, git fetch is used to download changes without affecting the current work, and git pull is used to download and merge the latest changes into the local repository. Understanding the difference between these commands helps developers collaborate efficiently using Git.
