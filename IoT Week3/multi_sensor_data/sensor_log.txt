@@ -1,0 +1,35 @@
+------ SENSOR LOG ------
+Time : 70774 ms
+Temp : 24.8 C | Humidity : 69%
+Light : 5%
+Distance : 131.04 cm
+
+------ SENSOR LOG ------
+Time : 80892 ms
+Temp : 24.8 C | Humidity : 64%
+Light : 5%
+Distance : 148.94 cm
+
+------ SENSOR LOG ------
+Time : 85954 ms
+Temp : 24.8 C | Humidity : 73%
+Light : 5%
+Distance : 218.93 cm
+
+------ SENSOR LOG ------
+Time : 91011 ms
+Temp : 24.8 C | Humidity : 78%
+Light : 5%
+Distance : 138.30 cm
+
+------ SENSOR LOG ------
+Time : 96061 ms
+Temp : 24.8 C | Humidity : 81%
+Light : 5%
+Distance : 28.59 cm
+
+------ SENSOR LOG ------
+Time : 101110 ms
+Temp : 24.8 C | Humidity : 85%
+Light : 5%
+Distance : 9.03 cm
