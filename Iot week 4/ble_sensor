@@ -1,0 +1,80 @@
+
+#include <BLEDevice.h>
+#include <BLEServer.h>
+#include <BLEUtils.h>
+#include <BLE2902.h>
+#include <DHTesp.h>
+
+// DHT Setup
+#define DHT_PIN 15
+DHTesp dht;
+
+// BLE UUIDs (you will document these)
+#define SERVICE_UUID        "12345678-1234-1234-1234-1234567890ab"
+#define TEMP_UUID           "12345678-1234-1234-1234-1234567890ac"
+#define HUM_UUID            "12345678-1234-1234-1234-1234567890ad"
+#define TIME_UUID           "12345678-1234-1234-1234-1234567890ae"
+
+BLECharacteristic *tempChar;
+BLECharacteristic *humChar;
+BLECharacteristic *timeChar;
+
+void setup() {
+  Serial.begin(115200);
+
+  // DHT Init
+  dht.setup(DHT_PIN, DHTesp::DHT22);
+
+  // BLE Init
+  BLEDevice::init("ESP32_DHT22");
+  BLEServer *server = BLEDevice::createServer();
+  BLEService *service = server->createService(SERVICE_UUID);
+
+  // Create Characteristics
+  tempChar = service->createCharacteristic(
+                TEMP_UUID,
+                BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_NOTIFY
+              );
+
+  humChar = service->createCharacteristic(
+                HUM_UUID,
+                BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_NOTIFY
+              );
+
+  timeChar = service->createCharacteristic(
+                TIME_UUID,
+                BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_NOTIFY
+              );
+
+  // Add descriptors (required in question)
+  tempChar->addDescriptor(new BLE2902());
+  humChar->addDescriptor(new BLE2902());
+  timeChar->addDescriptor(new BLE2902());
+
+  service->start();
+
+  BLEAdvertising *advertising = BLEDevice::getAdvertising();
+  advertising->start();
+
+  Serial.println("BLE Started...");
+}
+
+void loop() {
+  float temp = dht.getTemperature();
+  float hum = dht.getHumidity();
+  String timestamp = String(millis() / 1000);
+
+  // Set values
+  tempChar->setValue(String(temp).c_str());
+  humChar->setValue(String(hum).c_str());
+  timeChar->setValue(timestamp.c_str());
+
+  // Notify
+  tempChar->notify();
+  humChar->notify();
+  timeChar->notify();
+
+  Serial.println("Data Sent via BLE");
+
+  delay(3000);
+}
