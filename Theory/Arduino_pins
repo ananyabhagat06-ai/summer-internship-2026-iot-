@@ -1,0 +1,13 @@
+# Q13. Explain the different types of pins available on the Arduino UNO.
+
+The Arduino UNO contains different types of pins used for power supply, input/output operations, analog sensing, and communication.
+
+| Pin Type | Function |
+|----------|----------|
+| Digital Pins (0–13) | Used for digital input and output. Can read HIGH/LOW signals and control LEDs, relays, and other digital devices. |
+| PWM Pins (3, 5, 6, 9, 10, 11) | Generate Pulse Width Modulation (PWM) signals for controlling LED brightness and motor speed. |
+| Analog Input Pins (A0–A5) | Read analog voltages (0–5 V) from sensors using the built-in ADC. |
+| Power Pins | Include 5V, 3.3V, GND, Vin, and Reset pins to power the Arduino and connected components. |
+| Communication Pins | Pins 0 (RX) and 1 (TX) are used for Serial communication. A4 (SDA) and A5 (SCL) are used for I2C communication, while pins 10–13 are used for SPI communication. |
+
+These pins allow the Arduino UNO to interface with a wide range of sensors, actuators, displays, and communication modules.
