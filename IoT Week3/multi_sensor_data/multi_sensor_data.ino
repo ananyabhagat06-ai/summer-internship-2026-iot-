@@ -1,0 +1,78 @@
+/*
+  Project: Multi-Sensor Data Logger
+  Author: Ananaya bhagat 
+  IIT Jammu Summer School 2026
+
+  Reads:
+  - TMP36 Temperature
+  - LDR Light Level
+  - HC-SR04 Distance
+
+  Prints sensor values every 5 seconds.
+*/
+
+const int ldrPin = A0;
+const int tempPin = A1;
+
+const int trigPin = 9;
+const int echoPin = 10;
+
+void setup() {
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  // ----- Temperature -----
+  int tempRaw = analogRead(tempPin);
+  float voltage = tempRaw * (5.0 / 1023.0);
+  float tempC = (voltage - 0.5) * 100;
+
+  // Simulated humidity
+  int humidity = random(55, 86);
+
+  // ----- Light -----
+  int ldrValue = analogRead(ldrPin);
+  int lightPercent = map(ldrValue, 0, 1023, 0, 100);
+
+  // ----- Distance -----
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH);
+
+  float distance = duration * 0.034 / 2;
+
+  Serial.println("------ SENSOR LOG ------");
+
+  Serial.print("Time : ");
+  Serial.print(millis());
+  Serial.println(" ms");
+
+  Serial.print("Temp : ");
+  Serial.print(tempC,1);
+  Serial.print(" C | Humidity : ");
+  Serial.print(humidity);
+  Serial.println("%");
+
+  Serial.print("Light : ");
+  Serial.print(lightPercent);
+  Serial.println("%");
+
+  Serial.print("Distance : ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  Serial.println();
+
+  delay(5000);
+}
