@@ -1,0 +1,19 @@
+An IoT Gateway is a device that acts as a bridge between IoT sensor nodes and the cloud. It collects data from multiple sensors, 
+processes or filters it if required, converts data between different communication protocols, and securely forwards the information to
+cloud platforms. An IoT gateway also improves security, reduces network traffic, and allows communication between devices that use different
+technologies.
+Diagram
++----------------+      +----------------+      +----------------+      +----------------+
+| IoT Sensor     | ---> | IoT Gateway    | ---> | Cloud Platform | ---> | User           |
+| Nodes          |      | (ESP32/RPi)    |      |                |      | Application    |
++----------------+      +----------------+      +----------------+      +----------------+
+Protocols Used
+| Layer                    | Common Protocols           |
+| ------------------------ | -------------------------- |
+| Sensor Nodes → Gateway   | Zigbee, LoRa, BLE, Wi-Fi   |
+| Gateway → Cloud          | MQTT, HTTP/HTTPS, CoAP     |
+| Cloud → User Application | HTTPS, WebSocket, REST API |
+Conclusion
+
+The IoT gateway enables reliable, secure, and efficient communication between IoT devices and cloud services by managing data flow and 
+protocol conversion.
