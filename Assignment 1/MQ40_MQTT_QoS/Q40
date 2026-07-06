@@ -1,0 +1,23 @@
+Quality of Service (QoS) in MQTT defines the reliability level of message delivery between the publisher and the subscriber. 
+MQTT provides three QoS levels depending on how important the data is and the required reliability.
+
+| QoS Level                 | Description                                                                    | Advantages                                      | Disadvantages                                                 |
+| ------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------- |
+| **QoS 0 (At most once)**  | The message is sent only once without confirmation.                            | Fastest and lowest bandwidth usage.             | Message may be lost if the network fails.                     |
+| **QoS 1 (At least once)** | The sender retransmits the message until it receives an acknowledgement.       | Reliable message delivery.                      | Duplicate messages may occur.                                 |
+| **QoS 2 (Exactly once)**  | The message is delivered exactly one time using a four-step handshake process. | Highest reliability with no duplicate messages. | Highest bandwidth usage and increased communication overhead. |
+
+
+Which QoS level is suitable for an IoT water level monitoring system?
+
+For an IoT water level monitoring system, QoS 1 (At least once) is the most suitable choice.
+
+This system requires reliable transmission of water level data to ensure timely alerts during rising water levels.
+While duplicate messages may occasionally occur, they are generally acceptable because the latest sensor reading can replace previous values.
+QoS 1 provides a good balance between reliability, network efficiency, and communication speed, making it suitable for real-time monitoring
+applications.
+
+Conclusion
+
+QoS 0 is best for non-critical data, QoS 1 is ideal for most IoT monitoring systems, and QoS 2 is preferred only when duplicate messages
+are unacceptable, such as in financial or transaction-based applications.
